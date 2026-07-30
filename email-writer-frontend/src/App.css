@@ -1,0 +1,197 @@
+/* ============================================================
+   Email Reply Generator — "Airmail" theme
+   Written to target MUI's default generated classes —
+   no changes needed in App.jsx.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at top left, #F5F7FB 0%, #EEF1F6 55%);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+/* ---------- Title ---------- */
+
+.MuiTypography-h3 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  color: #17213B;
+  position: relative;
+  padding-top: 26px;
+  margin-bottom: 32px !important;
+}
+
+/* eyebrow label, generated purely in CSS above the title */
+.MuiTypography-h3::before {
+  content: "AI Assistant";
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2C4A8C;
+  padding-left: 26px;
+  margin-bottom: 10px;
+}
+
+.MuiTypography-h3::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: #D94F3D;
+}
+
+/* ---------- Card wrappers (both Box elements: form + reply) ---------- */
+
+.MuiContainer-root > .MuiBox-root {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px -20px rgba(23, 33, 59, 0.25), 0 2px 6px rgba(23, 33, 59, 0.06);
+  padding: 32px !important;
+  overflow: hidden;
+}
+
+/* signature: diagonal airmail stripe along the top edge of each card */
+.MuiContainer-root > .MuiBox-root::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #D94F3D 0 14px,
+    #FFFFFF 14px 20px,
+    #2C4A8C 20px 34px,
+    #FFFFFF 34px 40px
+  );
+}
+
+/* ---------- Text fields (Original Email + Generated Reply) ---------- */
+
+.MuiOutlinedInput-root {
+  border-radius: 10px !important;
+  background: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #E0E4EC !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #2C4A8C !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #2C4A8C !important;
+  border-width: 1.5px !important;
+}
+
+/* ruled-paper line texture inside multiline textareas */
+.MuiInputBase-multiline .MuiInputBase-inputMultiline {
+  line-height: 1.9;
+  background: repeating-linear-gradient(
+    #FFFFFF 0 37px,
+    #EDF1F7 37px 38px
+  );
+}
+
+.MuiInputLabel-root {
+  font-family: 'Inter', sans-serif;
+  color: #4A5570;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: #2C4A8C !important;
+}
+
+/* ---------- Select (Tone dropdown) ---------- */
+
+.MuiSelect-select {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* ---------- Buttons ---------- */
+
+.MuiButton-root {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  border-radius: 10px !important;
+  padding: 13px 24px !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease !important;
+}
+
+/* Generate Reply button */
+.MuiButton-contained {
+  background-color: #D94F3D !important;
+  color: #FFF9F2 !important;
+  box-shadow: 0 10px 20px -8px rgba(217, 79, 61, 0.45) !important;
+}
+
+.MuiButton-contained:hover {
+  background-color: #C4402F !important;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 26px -10px rgba(217, 79, 61, 0.55) !important;
+}
+
+.MuiButton-contained.Mui-disabled {
+  background-color: #CBD1DD !important;
+  color: #8991A5 !important;
+  box-shadow: none !important;
+}
+
+.MuiButton-contained .MuiCircularProgress-root {
+  color: #FFF9F2 !important;
+}
+
+/* Copy to Clipboard button */
+.MuiButton-outlined {
+  border-color: #2C4A8C !important;
+  color: #2C4A8C !important;
+}
+
+.MuiButton-outlined:hover {
+  background-color: rgba(44, 74, 140, 0.06) !important;
+  border-color: #2C4A8C !important;
+  transform: translateY(-1px);
+}
+
+/* ---------- Error text ---------- */
+
+.MuiTypography-colorError {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 10px 14px;
+  background: #FDEDEA;
+  border-left: 3px solid #D94F3D;
+  border-radius: 6px;
+}
+
+/* ---------- "Generated Reply" heading ---------- */
+
+.MuiTypography-h6 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 600 !important;
+  color: #17213B;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .MuiButton-root,
+  .MuiButton-contained:hover,
+  .MuiButton-outlined:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
